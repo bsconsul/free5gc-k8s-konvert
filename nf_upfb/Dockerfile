@@ -30,7 +30,7 @@ COPY --from=builder /free5gc/liblogger.so /usr/local/lib
 # Such a shame - under k8s cannot access config as volume on local path (it thinks they are directories, not files - bizzare)
 # so need to copy them at build time
 COPY ./free5GC.conf /free5gc/config
-COPY ./upfcfg1.yaml /free5gc/config/upfcfg.yaml
+COPY ./upfcfgb.yaml /free5gc/config/upfcfg.yaml
 
 # Move to the executable location
 WORKDIR /free5gc/${F5GC_MODULE}

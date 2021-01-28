@@ -18,6 +18,11 @@ RUN mkdir -p config/ webconsole/public
 COPY --from=builder /free5gc/${F5GC_MODULE} ./webconsole
 COPY --from=builder /free5gc/public ./webconsole/public
 
+# Such a shame - under k8s cannot access config as volume on local path (it thinks they are directories, not files - bizzare)
+# so need to copy them at build time
+COPY ./free5GC.conf /free5gc/config
+COPY ./webuicfg.conf /free5gc/config
+
 # Move to the executable location
 WORKDIR /free5gc/webconsole
 

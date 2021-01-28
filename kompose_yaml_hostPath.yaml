@@ -1,0 +1,1105 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: db
+    name: db
+  spec:
+    ports:
+    - name: "27017"
+      port: 27017
+      targetPort: 27017
+    selector:
+      io.kompose.service: db
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-amf
+    name: free5gc-amf
+  spec:
+    ports:
+    - name: "29518"
+      port: 29518
+      targetPort: 29518
+    selector:
+      io.kompose.service: free5gc-amf
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-ausf
+    name: free5gc-ausf
+  spec:
+    ports:
+    - name: "29509"
+      port: 29509
+      targetPort: 29509
+    selector:
+      io.kompose.service: free5gc-ausf
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-nrf
+    name: free5gc-nrf
+  spec:
+    ports:
+    - name: "29510"
+      port: 29510
+      targetPort: 29510
+    selector:
+      io.kompose.service: free5gc-nrf
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-nssf
+    name: free5gc-nssf
+  spec:
+    ports:
+    - name: "29531"
+      port: 29531
+      targetPort: 29531
+    selector:
+      io.kompose.service: free5gc-nssf
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-pcf
+    name: free5gc-pcf
+  spec:
+    ports:
+    - name: "29507"
+      port: 29507
+      targetPort: 29507
+    selector:
+      io.kompose.service: free5gc-pcf
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-smf
+    name: free5gc-smf
+  spec:
+    ports:
+    - name: "29502"
+      port: 29502
+      targetPort: 29502
+    selector:
+      io.kompose.service: free5gc-smf
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-udm
+    name: free5gc-udm
+  spec:
+    ports:
+    - name: "29503"
+      port: 29503
+      targetPort: 29503
+    selector:
+      io.kompose.service: free5gc-udm
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-udr
+    name: free5gc-udr
+  spec:
+    ports:
+    - name: "29504"
+      port: 29504
+      targetPort: 29504
+    selector:
+      io.kompose.service: free5gc-udr
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-webui
+    name: free5gc-webui
+  spec:
+    ports:
+    - name: "5000"
+      port: 5000
+      targetPort: 5000
+    selector:
+      io.kompose.service: free5gc-webui
+  status:
+    loadBalancer: {}
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: db
+    name: db
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        io.kompose.service: db
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+          kompose.version: 1.21.0 (992df58d8)
+        creationTimestamp: null
+        labels:
+          io.kompose.network/privnet: "true"
+          io.kompose.service: db
+      spec:
+        containers:
+        - args:
+          - mongod
+          - --port
+          - "27017"
+          image: mongo
+          imagePullPolicy: ""
+          name: mongodb
+          ports:
+          - containerPort: 27017
+          resources: {}
+          volumeMounts:
+          - mountPath: /data/db
+            name: dbdata
+        restartPolicy: Always
+        serviceAccountName: ""
+        volumes:
+        - hostPath:
+            path: /home/mbowring/free5gc-compose
+          name: dbdata
+  status: {}
+- apiVersion: extensions/v1beta1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: null
+    name: privnet
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            io.kompose.network/privnet: "true"
+    podSelector:
+      matchLabels:
+        io.kompose.network/privnet: "true"
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-amf
+    name: free5gc-amf
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        io.kompose.service: free5gc-amf
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+          kompose.version: 1.21.0 (992df58d8)
+        creationTimestamp: null
+        labels:
+          io.kompose.network/privnet: "true"
+          io.kompose.service: free5gc-amf
+      spec:
+        containers:
+        - args:
+          - ./amf
+          - -amfcfg
+          - ../config/amfcfg.conf
+          env:
+          - name: GIN_MODE
+            value: release
+          image: bsconsul/free5gc-amf:hardCfg
+          imagePullPolicy: ""
+          name: amf
+          ports:
+          - containerPort: 29518
+          resources: {}
+#          volumeMounts:
+#          - mountPath: /free5gc/config
+#            name: free5gc-amf-hostpath0
+        restartPolicy: Always
+        serviceAccountName: ""
+#        volumes:
+#        - hostPath:
+#            path: /home/mbowring/free5gc-compose/config
+#          name: free5gc-amf-hostpath0
+  status: {}
+- apiVersion: extensions/v1beta1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: null
+    name: privnet
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            io.kompose.network/privnet: "true"
+    podSelector:
+      matchLabels:
+        io.kompose.network/privnet: "true"
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-ausf
+    name: free5gc-ausf
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        io.kompose.service: free5gc-ausf
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+          kompose.version: 1.21.0 (992df58d8)
+        creationTimestamp: null
+        labels:
+          io.kompose.network/privnet: "true"
+          io.kompose.service: free5gc-ausf
+      spec:
+        containers:
+        - args:
+          - ./ausf
+          - -ausfcfg
+          - ../config/ausfcfg.conf
+          env:
+          - name: GIN_MODE
+            value: release
+          image: bsconsul/free5gc-ausf:hardCfg
+          imagePullPolicy: ""
+          name: ausf
+          ports:
+          - containerPort: 29509
+          resources: {}
+#          volumeMounts:
+#          - mountPath: /free5gc/config
+#            name: free5gc-ausf-hostpath0
+        restartPolicy: Always
+        serviceAccountName: ""
+#        volumes:
+#        - hostPath:
+#            path: /home/mbowring/free5gc-compose/config
+#          name: free5gc-ausf-hostpath0
+  status: {}
+- apiVersion: extensions/v1beta1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: null
+    name: privnet
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            io.kompose.network/privnet: "true"
+    podSelector:
+      matchLabels:
+        io.kompose.network/privnet: "true"
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-n3iwf
+    name: free5gc-n3iwf
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        io.kompose.service: free5gc-n3iwf
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+          kompose.version: 1.21.0 (992df58d8)
+        creationTimestamp: null
+        labels:
+          io.kompose.network/privnet: "true"
+          io.kompose.service: free5gc-n3iwf
+      spec:
+        containers:
+        - args:
+          - sh
+          - -c
+          - ./n3iwf-ipsec.sh && ./n3iwf -n3iwfcfg ../config/n3iwfcfg.conf
+          env:
+          - name: GIN_MODE
+            value: release
+          image: bsconsul/free5gc-n3iwf:hardCfg
+          imagePullPolicy: ""
+          name: n3iwf
+          resources: {}
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
+#          volumeMounts:
+#          - mountPath: /free5gc/config
+#            name: free5gc-n3iwf-hostpath0
+        restartPolicy: Always
+        serviceAccountName: ""
+#        volumes:
+#        - hostPath:
+#            path: /home/mbowring/free5gc-compose/config
+#          name: free5gc-n3iwf-hostpath0
+  status: {}
+- apiVersion: extensions/v1beta1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: null
+    name: privnet
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            io.kompose.network/privnet: "true"
+    podSelector:
+      matchLabels:
+        io.kompose.network/privnet: "true"
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-nrf
+    name: free5gc-nrf
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        io.kompose.service: free5gc-nrf
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+          kompose.version: 1.21.0 (992df58d8)
+        creationTimestamp: null
+        labels:
+          io.kompose.network/privnet: "true"
+          io.kompose.service: free5gc-nrf
+      spec:
+        containers:
+        - args:
+          - ./nrf
+          - -nrfcfg
+          - ../config/nrfcfg.conf
+          env:
+          - name: DB_URI
+            value: mongodb://db/free5gc
+          - name: GIN_MODE
+            value: release
+          image: bsconsul/free5gc-nrf:hardCfg
+          imagePullPolicy: ""
+          name: nrf
+          ports:
+          - containerPort: 29510
+          resources: {}
+#          volumeMounts:
+#          - mountPath: /free5gc/config
+#            name: free5gc-nrf-hostpath0
+        restartPolicy: Always
+        serviceAccountName: ""
+#        volumes:
+#        - hostPath:
+#            path: /home/mbowring/free5gc-compose/config
+#          name: free5gc-nrf-hostpath0
+  status: {}
+- apiVersion: extensions/v1beta1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: null
+    name: privnet
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            io.kompose.network/privnet: "true"
+    podSelector:
+      matchLabels:
+        io.kompose.network/privnet: "true"
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-nssf
+    name: free5gc-nssf
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        io.kompose.service: free5gc-nssf
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+          kompose.version: 1.21.0 (992df58d8)
+        creationTimestamp: null
+        labels:
+          io.kompose.network/privnet: "true"
+          io.kompose.service: free5gc-nssf
+      spec:
+        containers:
+        - args:
+          - ./nssf
+          - -nssfcfg
+          - ../config/nssfcfg.conf
+          env:
+          - name: GIN_MODE
+            value: release
+          image: bsconsul/free5gc-nssf:hardCfg
+          imagePullPolicy: ""
+          name: nssf
+          ports:
+          - containerPort: 29531
+          resources: {}
+#          volumeMounts:
+#          - mountPath: /free5gc/config
+#            name: free5gc-nssf-hostpath0
+        restartPolicy: Always
+        serviceAccountName: ""
+#        volumes:
+#        - hostPath:
+#            path: /home/mbowring/free5gc-compose/config
+#          name: free5gc-nssf-hostpath0
+  status: {}
+- apiVersion: extensions/v1beta1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: null
+    name: privnet
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            io.kompose.network/privnet: "true"
+    podSelector:
+      matchLabels:
+        io.kompose.network/privnet: "true"
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-pcf
+    name: free5gc-pcf
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        io.kompose.service: free5gc-pcf
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+          kompose.version: 1.21.0 (992df58d8)
+        creationTimestamp: null
+        labels:
+          io.kompose.network/privnet: "true"
+          io.kompose.service: free5gc-pcf
+      spec:
+        containers:
+        - args:
+          - ./pcf
+          - -pcfcfg
+          - ../config/pcfcfg.conf
+          env:
+          - name: GIN_MODE
+            value: release
+          image: bsconsul/free5gc-pcf:hardCfg
+          imagePullPolicy: ""
+          name: pcf
+          ports:
+          - containerPort: 29507
+          resources: {}
+#          volumeMounts:
+#          - mountPath: /free5gc/config
+#            name: free5gc-pcf-hostpath0
+        restartPolicy: Always
+        serviceAccountName: ""
+#        volumes:
+#        - hostPath:
+#            path: /home/mbowring/free5gc-compose/config
+#          name: free5gc-pcf-hostpath0
+  status: {}
+- apiVersion: extensions/v1beta1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: null
+    name: privnet
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            io.kompose.network/privnet: "true"
+    podSelector:
+      matchLabels:
+        io.kompose.network/privnet: "true"
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-smf
+    name: free5gc-smf
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        io.kompose.service: free5gc-smf
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+          kompose.version: 1.21.0 (992df58d8)
+        creationTimestamp: null
+        labels:
+          io.kompose.network/privnet: "true"
+          io.kompose.service: free5gc-smf
+      spec:
+        containers:
+        - args:
+          - ./smf
+          - -smfcfg
+          - ../config/smfcfg.conf
+          - -uerouting
+          - ../config/uerouting.yaml
+          env:
+          - name: GIN_MODE
+            value: release
+          image: bsconsul/free5gc-smf:hardCfg
+          imagePullPolicy: ""
+          name: smf
+          ports:
+          - containerPort: 29502
+          resources: {}
+#          volumeMounts:
+#          - mountPath: /free5gc/config
+#            name: free5gc-smf-hostpath0
+        restartPolicy: Always
+        serviceAccountName: ""
+#        volumes:
+#        - hostPath:
+#            path: /home/mbowring/free5gc-compose/config
+#          name: free5gc-smf-hostpath0
+  status: {}
+- apiVersion: extensions/v1beta1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: null
+    name: privnet
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            io.kompose.network/privnet: "true"
+    podSelector:
+      matchLabels:
+        io.kompose.network/privnet: "true"
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-udm
+    name: free5gc-udm
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        io.kompose.service: free5gc-udm
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+          kompose.version: 1.21.0 (992df58d8)
+        creationTimestamp: null
+        labels:
+          io.kompose.network/privnet: "true"
+          io.kompose.service: free5gc-udm
+      spec:
+        containers:
+        - args:
+          - ./udm
+          - -udmcfg
+          - ../config/udmcfg.conf
+          env:
+          - name: GIN_MODE
+            value: release
+          image: bsconsul/free5gc-udm:hardCfg
+          imagePullPolicy: ""
+          name: udm
+          ports:
+          - containerPort: 29503
+          resources: {}
+#          volumeMounts:
+#          - mountPath: /free5gc/config
+#            name: free5gc-udm-hostpath0
+        restartPolicy: Always
+        serviceAccountName: ""
+#        volumes:
+#        - hostPath:
+#            path: /home/mbowring/free5gc-compose/config
+#          name: free5gc-udm-hostpath0
+  status: {}
+- apiVersion: extensions/v1beta1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: null
+    name: privnet
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            io.kompose.network/privnet: "true"
+    podSelector:
+      matchLabels:
+        io.kompose.network/privnet: "true"
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-udr
+    name: free5gc-udr
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        io.kompose.service: free5gc-udr
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+          kompose.version: 1.21.0 (992df58d8)
+        creationTimestamp: null
+        labels:
+          io.kompose.network/privnet: "true"
+          io.kompose.service: free5gc-udr
+      spec:
+        containers:
+        - args:
+          - ./udr
+          - -udrcfg
+          - ../config/udrcfg.conf
+          env:
+          - name: DB_URI
+            value: mongodb://db/free5gc
+          - name: GIN_MODE
+            value: release
+          image: bsconsul/free5gc-udr:hardCfg
+          imagePullPolicy: ""
+          name: udr
+          ports:
+          - containerPort: 29504
+          resources: {}
+#          volumeMounts:
+#          - mountPath: /free5gc/config
+#            name: free5gc-udr-hostpath0
+        restartPolicy: Always
+        serviceAccountName: ""
+#        volumes:
+#        - hostPath:
+#            path: /home/mbowring/free5gc-compose/config
+#          name: free5gc-udr-hostpath0
+  status: {}
+- apiVersion: extensions/v1beta1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: null
+    name: privnet
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            io.kompose.network/privnet: "true"
+    podSelector:
+      matchLabels:
+        io.kompose.network/privnet: "true"
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-upf
+    name: free5gc-upf
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        io.kompose.service: free5gc-upf
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+          kompose.version: 1.21.0 (992df58d8)
+        creationTimestamp: null
+        labels:
+          io.kompose.network/privnet: "true"
+          io.kompose.service: free5gc-upf
+      spec:
+        containers:
+        - args:
+          - ./free5gc-upfd
+          - -f
+          - ../config/upfcfg.yaml
+          image: bsconsul/free5gc-upf:hardCfg
+          imagePullPolicy: ""
+          name: upf1
+          resources: {}
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
+#          volumeMounts:
+#          - mountPath: /free5gc/config/upfcfg.yaml
+#            name: free5gc-upf-1-hostpath0
+        restartPolicy: Always
+        serviceAccountName: ""
+#        volumes:
+#        - hostPath:
+#            path: /home/mbowring/free5gc-compose/config/upfcfg1.yaml
+#          name: free5gc-upf-1-hostpath0
+  status: {}
+- apiVersion: extensions/v1beta1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: null
+    name: privnet
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            io.kompose.network/privnet: "true"
+    podSelector:
+      matchLabels:
+        io.kompose.network/privnet: "true"
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-upf-2
+    name: free5gc-upf-2
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        io.kompose.service: free5gc-upf-2
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+          kompose.version: 1.21.0 (992df58d8)
+        creationTimestamp: null
+        labels:
+          io.kompose.network/privnet: "true"
+          io.kompose.service: free5gc-upf-2
+      spec:
+        containers:
+        - args:
+          - ./free5gc-upfd
+          - -f
+          - ../config/upfcfg.yaml
+          image: bsconsul/free5gc-upf-2:hardCfg
+          imagePullPolicy: ""
+          name: upf2
+          resources: {}
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
+#          volumeMounts:
+#          - mountPath: /free5gc/config
+#            name: free5gc-upf-2-hostpath0
+        restartPolicy: Always
+        serviceAccountName: ""
+#        volumes:
+#        - hostPath:
+#            path: /home/mbowring/free5gc-compose/config
+#          name: free5gc-upf-2-hostpath0
+  status: {}
+- apiVersion: extensions/v1beta1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: null
+    name: privnet
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            io.kompose.network/privnet: "true"
+    podSelector:
+      matchLabels:
+        io.kompose.network/privnet: "true"
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-upf-b
+    name: free5gc-upf-b
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        io.kompose.service: free5gc-upf-b
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+          kompose.version: 1.21.0 (992df58d8)
+        creationTimestamp: null
+        labels:
+          io.kompose.network/privnet: "true"
+          io.kompose.service: free5gc-upf-b
+      spec:
+        containers:
+        - args:
+          - ./free5gc-upfd
+          - -f
+          - ../config/upfcfg.yaml
+          image: bsconsul/free5gc-upf-b:hardCfg
+          imagePullPolicy: ""
+          name: upfb
+          resources: {}
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
+#          volumeMounts:
+#          - mountPath: /free5gc/config
+#            name: free5gc-upf-b-hostpath0
+        restartPolicy: Always
+        serviceAccountName: ""
+#        volumes:
+#        - hostPath:
+#            path: /home/mbowring/free5gc-compose/config
+#          name: free5gc-upf-b-hostpath0
+  status: {}
+- apiVersion: extensions/v1beta1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: null
+    name: privnet
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            io.kompose.network/privnet: "true"
+    podSelector:
+      matchLabels:
+        io.kompose.network/privnet: "true"
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+      kompose.version: 1.21.0 (992df58d8)
+    creationTimestamp: null
+    labels:
+      io.kompose.service: free5gc-webui
+    name: free5gc-webui
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        io.kompose.service: free5gc-webui
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: kompose convert -o kompose_yaml_hostPath.yaml --volumes hostPath
+          kompose.version: 1.21.0 (992df58d8)
+        creationTimestamp: null
+        labels:
+          io.kompose.network/privnet: "true"
+          io.kompose.service: free5gc-webui
+      spec:
+        containers:
+        - args:
+          - ./webui
+          env:
+          - name: GIN_MODE
+            value: release
+          image: bsconsul/free5gc-webui:hardCfg
+          imagePullPolicy: ""
+          name: webui
+          ports:
+          - containerPort: 5000
+          resources: {}
+#          volumeMounts:
+#          - mountPath: /free5gc/config
+#            name: free5gc-webui-hostpath0
+        restartPolicy: Always
+        serviceAccountName: ""
+#        volumes:
+#        - hostPath:
+#            path: /home/mbowring/free5gc-compose/config
+#          name: free5gc-webui-hostpath0
+  status: {}
+- apiVersion: extensions/v1beta1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: null
+    name: privnet
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            io.kompose.network/privnet: "true"
+    podSelector:
+      matchLabels:
+        io.kompose.network/privnet: "true"
+kind: List
+metadata: {}
+
