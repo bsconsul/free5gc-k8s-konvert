@@ -77,9 +77,8 @@ $ cd free5gc-k8s
 # for subsequent extraction into the individual network function docker images
 $ make base
 $
-# TBD - add make option to next build all docker images under nf_<network-function>
-# This will go into each nf_ folder and run the command docker image build -t <image name> .
-# This will be similar to what docker-compose build does (kompose convert does not build the containers for you)
+# make all network functions and webui
+$ make net
 $
 # Start the deployment (may need root as indicated in free5gc-compose README (quote: Because we need to create tunnel
 # interface, we need to use privileged container with root permission))
